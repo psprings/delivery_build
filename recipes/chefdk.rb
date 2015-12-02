@@ -49,6 +49,7 @@ end
 
 file gemrc_path do
   mode '0644'
+  not_if { File.exist?(gemrc_path) }
   content <<-EOF
 ---
 :benchmark: false
