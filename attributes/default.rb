@@ -27,6 +27,11 @@ default['delivery_build']['lib'] = File.join(node['delivery_build']['root'], 'li
 default['delivery_build']['etc'] = File.join(node['delivery_build']['root'], 'etc')
 default['delivery_build']['dot_chef'] = File.join(node['delivery_build']['root'], '.chef')
 
+# Set the threshold (in mb) for when the workspace will be cleared and rebuilt
+# when free space drops below this amount workspace gets cleared and rebuilt
+# E.g. 150mb means that when only 75mb free, workspace will be rebuilt
+default['delivery_build']['workspace_limit'] = 150
+
 # Settings for the Delivery SSH Wrapper
 default['delivery_build']['ssh_user'] = 'builder'
 default['delivery_build']['ssh_key'] = File.join(node['delivery_build']['etc'], 'builder_key')
