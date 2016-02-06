@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 memory_mb = node['memory']['total'].gsub(/kB$/i, '').to_i / 1024
-if memory_mb < node['delivery_build']['workspace_limit']
+if memory_mb < node['delivery_build']['workspace_limit'].to_i
   directory node['delivery_build']['root'] do
     recursive true
     action :delete
